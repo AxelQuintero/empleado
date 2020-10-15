@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Create View
+{% endblock title %}
+
+{% block content %}
+
+{% include 'includes/header.html' %}
+
+<div class = "grid-container">
+    <div clas = grid-x"></div>
+        <h1 class = "cell"> Registrar Nuevo Empleado</h1>
+        <form class = "cell grid-x grid-margin-x" method = "POST" enctype="multipart/form-data">{% csrf_token %}
+            <div class = "medium-6 cell">
+                <label> Nombres:
+                    {{form.first_name}}
+                </label>
+            </div>
+            <div class = "medium-6 cell">
+                <label> Apellidos:
+                    {{form.last_name}}
+                </label>
+            </div>
+            <div class = "medium-6 cell">
+                <label> Trabajo:
+                    {{form.job}}
+                </label>
+            </div>
+            <div class = "medium-6 cell">
+                <label> Departamento:
+                    {{form.departamento}}
+                </label>
+            </div>
+            <div class = "medium-6 cell">
+                <label> Habilidades:
+                    {{form.habilidades}}
+                </label>
+            </div>
+            <div class = "medium-6 cell">
+                <label> Foto:
+                    {{form.avatar}}
+                </label>
+            </div>
+            <div class = "medium-6 cell" style="text-align: right;">
+
+                <button class = "button success" type = "submit">Guardar</button>
+            </div>
+        </form>   
+</div>
+{% endblock content %}
+<!--<input type="text" placeholder="Nombres">
+<input type="text" placeholder="Appelidos">
+<input type="text" placeholder="Job">-->
+

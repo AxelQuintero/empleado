@@ -1,0 +1,9 @@
+<h1> Probando CreateView</h1>
+<!-- <input type = 'text', placeholder="Ingrese Título"> -->
+<form method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <button type = 'submit'> Guardar </button>
+</form>
+
+<!--<label for="prueba">Prueba:</label>
+<input type="text" placeholder="Ingrese Texto Aquí">-->

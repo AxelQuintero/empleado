@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Lista Empleados por departamento
+{% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html'%}  
+
+    <div class = "grid-container">
+        <div class = "grid-x">
+            <div class="cell">Empleados por área</div>
+            <div>
+                <table>
+                    <thead>
+                      <tr>
+                        <th width="200">ID</th>
+                        <th>Nombres</th>
+                        <th width="150">Apellidos</th>
+                        <th width="150">Departamento</th>
+                        <th width="150">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for e in empleados %}
+                      <tr>
+                        <td>{{e.id}}</td>
+                        <td>{{e.first_name}}</td>
+                        <td>{{e.last_name}}</td>
+                        <td>{{e.departamento}}</td>
+                        <!-- en el e.id de la línea de abajo toma a consideración el bucle actual. Se le pasa su pk.-->
+                        <td style="text-align: center;"><a class="button warning" href="{% url 'persona_app:Empleado_Detail' e.id %}">Ver</a></td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock content %}
+    
+
+
+<!--{{lista}}-->
+<!-- Se puede poner object_list si no se definió object_content_name en views-->
+
+<!--# 2.- Listas todos los empleaos que pertenecen a un área de la empresa. -->
+<!--{%for i in object_list %}-->
+    <li>{{i}} </li> <!--{{i.first_name}}-->
+<!--{% endfor %}-->
